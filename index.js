@@ -4,8 +4,6 @@ const client = new Discord.Client({ intents: [
   Discord.GatewayIntentBits.GuildMessages
 ]})
 
-const { token } = require("./config.json");
-
 client.once('ready', () => {
 	console.log('Ready!');
 });
