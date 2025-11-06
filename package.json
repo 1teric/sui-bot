@@ -1,0 +1,19 @@
+{
+  "name": "sui",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@discordjs/builders": "^1.13.0",
+    "@discordjs/rest": "^2.6.0",
+    "discord-api-types": "^0.38.32",
+    "discord.js": "^14.24.2",
+    "dotenv": "^17.2.3"
+  }
+}
