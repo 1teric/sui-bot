@@ -9,6 +9,6 @@ module.exports = {
 			.setColor('#a6e9dfff')
 			.setTitle('테스트!')
 			.setDescription('야호');
-		await interaction.reply({content:'', embeds: [embed], components: [test]});
+		await interaction.reply({content:'', embeds: [embed]});
 	},
 };
