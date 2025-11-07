@@ -1,7 +1,10 @@
 const fs = require('fs');
 const { Client, Collection, Intents } = require('discord.js');
 const Discord = require('discord.js');
-const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
+const client = new Discord.Client({ intents: [
+  Discord.GatewayIntentBits.Guilds,
+  Discord.GatewayIntentBits.GuildMessages
+]})
 
 client.commands = new Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
