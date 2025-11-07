@@ -31,19 +31,5 @@ module.exports = {
 			.setTitle('가위바위보!')
 			.setDescription('무엇을 내실 건가요?');
 		await interaction.reply({ephemeral: true, embeds: [embed], components: [s, r, p]});
-
-
-
-        const filter = i => i.customId === '가위' && i.user.id === interaction.user.id;
-
-        const collector = interaction.channel.createMessageComponentCollector({ filter, time: 15000 });
-
-        collector.on('collect', async i => {
-            if (i.customId === '가위') {
-                await i.update({ content: 'A button was clicked!', components: [] });
-            }
-        });
-
-        collector.on('end', collected => console.log(`Collected ${collected.size} items`));
 	},
 };
