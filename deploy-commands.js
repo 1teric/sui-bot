@@ -12,3 +12,18 @@ for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
 	commands.push(command.data.toJSON());
 }
+
+const rest = new REST({ version: '9' }).setToken(token);
+
+(async () => {
+	try {
+		await rest.put(
+			Routes.applicationGuildCommands(clientId, guildId),
+			{ body: commands },
+		);
+
+		console.log('명령어 등록을 성공적으로 완료했습니다.');
+	} catch (error) {
+		console.error(error);
+	}
+})();
