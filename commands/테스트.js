@@ -16,6 +16,6 @@ module.exports = {
 			.setColor('#a6e9dfff')
 			.setTitle('테스트!')
 			.setDescription('야호');
-		await interaction.reply({ephemeral: true, embeds: [embed], components: [test]});
+		await interaction.reply({content: '', ephemeral: true, embeds: [embed], components: [test]});
 	},
 };
