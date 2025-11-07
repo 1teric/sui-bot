@@ -1,24 +1,14 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const fs = require('fs');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 const { clientId, guildId, token } = require('./config.json');
 
-const commands = [
-	new SlashCommandBuilder().setName('핑').setDescription('퐁!'),
-]
-	.map(command => command.toJSON());
+const commands = [];
 
-const rest = new REST({ version: '9' }).setToken(token);
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
-(async () => {
-	try {
-		await rest.put(
-			Routes.applicationGuildCommands(clientId, guildId),
-			{ body: commands },
-		);
-
-		console.log('명령어 등록을 성공적으로 완료했습니다.');
-	} catch (error) {
-		console.error(error);
-	}
-})();
+for (const file of commandFiles) {
+	const command = require(`./commands/${file}`);
+	commands.push(command.data.toJSON());
+}
